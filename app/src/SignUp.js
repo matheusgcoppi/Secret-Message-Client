@@ -4,19 +4,24 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import {  useNavigate } from "react-router-dom"
 
+
+
 const SignUp = () => {
     const navigate = useNavigate()
     const [name, setName] = useState('')
-    const [data] = fetch(`http://localhost:8000/`+ id)
-
+    
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         axios
         .post(`http://localhost:8000/register`, {name})
         .then((response) => {
             console.log(response.data)
-            if(response.data.sucess === "true") {
-                navigate('/user/' + response.data.id)
+            if(response.data.pinEncrypted.pin) {
+                navigate(`/user/${response.data.pinEncrypted.pin}` )
+                console.log(response.data.pinEncrypted.pin)
+                
+                
                 
             }
         })

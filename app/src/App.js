@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route exact path= "/" element= {<SignUp/>}></Route>
         <Route exact path= "/login" element= {<Login/>}></Route>
-        <Route exact path= "/user/:id" element= {<Main/>}></Route>
+        <Route exact path= "/user/:pin" element= {<Main/>}></Route>
         <Route path= "*" element= {<NotFound/>}></Route>
       </Routes>
     </div>
