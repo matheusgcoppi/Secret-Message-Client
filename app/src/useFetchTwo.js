@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
-    const [data, setData] = useState([]); 
+const useFetchTwo = (url) => {
+    const [dataTwo, setDataTwo] = useState([]); 
 
     useEffect(() => {
         setTimeout(() => {
@@ -13,7 +13,7 @@ const useFetch = (url) => {
                     return res.json()
                 })
                 .then((data) => {
-                    setData(data);
+                    setDataTwo(data);
                     console.log(data)
                 })
                 .catch(error => {
@@ -22,7 +22,7 @@ const useFetch = (url) => {
         }, 1000)
     }, [url]);
 
-    return {data}
+    return {dataTwo}
 }
 
-export default useFetch;
+export default useFetchTwo;
