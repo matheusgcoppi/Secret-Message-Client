@@ -4,6 +4,7 @@ import useFetch from "./useFetch";
 import { useState } from 'react';
 import useFetchTwo from "./useFetchTwo";
 
+
 const Main = () => {
     const { pin } = useParams();
     const { data } = useFetch('http://localhost:8000/user/' + pin)
@@ -25,35 +26,41 @@ const Main = () => {
         <div className="main"> 
 
             {Object.entries(data).map(([key, user], i) => (
-    <li  key={i}>
-        <p> Olá {user.name} </p>
+    <div key={i} >
+        Olá {user.name} 
 
         <form onSubmit={sendText}>
             <label>
-        Escreva Algo para {user.name}
-                <input type="text" name="name" value={text}  onChange={(e) => setText(e.target.value)} required/>
+                Escreva Algo para {user.name}:
+                <textarea className="input-type" type="text" name="name" value={text} onChange={(e) => setText(e.target.value)} required />
             </label>
-        <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
         </form>   
-    </li>
-))}         
-            <div className="mainTwo">
+    </div>
+))}        
+
+            <div className="blog-list">
+                <h2>Anonymous Message Timeline</h2>
                 
             </div>          
             {Object.entries(dataTwo).map(([key, user], i) => {
             return (
-            <div key={i}>
+            <div key={i} className="blog-preview">
             {user.map((item, j) => (
-            <p key={`${i}-${j}`}>{item.text}</p>
+
+            <div className="blog-text">
+                
+            <p key={`${i}-${j}`}>escrito por: {item.author}</p>
+            <p>{item.text}</p>
+            <hr />
+                
+            </div>
+
             ))}
     </div>
   );
-})} 
-        
-        </div>  
-        
-        
-        
+})}      
+        </div>       
      );
 }
  

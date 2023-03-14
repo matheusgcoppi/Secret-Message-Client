@@ -12,6 +12,7 @@
   height: 100vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: #f8f9fd;
+  min-height: 1230px;
 }
 
 input[type="text"],
@@ -64,6 +65,37 @@ input[type="submit"]:hover {
   flex-direction: column;
   gap: 8px;
   margin: 10px;
+}
+
+.blog-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+  margin: 0 ;
+  background-color: black;
+}
+
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.blog-preview h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}
+
+.blog-text  {
+  color: white;
+}
+
+.main {
+  margin-bottom: 600px;
+}
+
+.input-type {
+  display: block;
+  width: 400px;
 }
 
 

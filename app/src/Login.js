@@ -1,7 +1,10 @@
 import './index.css'
 import { useState } from 'react';
 import axios from 'axios';
+import {  useNavigate } from "react-router-dom"
+
 const Login = () => {
+    const navigate = useNavigate()
 
     const [pin, setPin] = useState('')
     const [pintwo, setPassword] = useState('')
@@ -11,7 +14,11 @@ const Login = () => {
         axios
         .post('http://localhost:8000/login', {pin, pintwo})
         .then(response => {
-            console.log(response)
+            console.log(response.data)
+            if(response.data.sucess === "true") {
+                navigate('/user/' + pin)
+            }
+            
         })
     }
 
