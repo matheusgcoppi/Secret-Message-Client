@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { useState } from 'react';
 import useFetchTwo from "./useFetchTwo";
+import NavBar from "./NavBar";
 
 
 const Main = () => {
@@ -27,6 +28,8 @@ const Main = () => {
     
 
     return ( 
+        <div className="navBar">
+        <NavBar/>
 
         <div className="main"> 
 
@@ -65,6 +68,7 @@ const Main = () => {
     </div>
   );
 })}      
+        </div>       
         </div>       
      );
 }

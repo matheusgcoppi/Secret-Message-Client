@@ -21,7 +21,8 @@ const SignUp = () => {
                 console.log(response.data.pinEncrypted.pin)
                 localStorage.setItem('accessToken', response.data.accessToken)         
                 localStorage.setItem('refreshToken', response.data.refreshToken)         
-                console.log(localStorage)    
+                console.log(localStorage)  
+                
             }
         })
         .catch((error) => {
