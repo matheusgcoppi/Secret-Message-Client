@@ -7,19 +7,24 @@ import useFetchTwo from "./useFetchTwo";
 
 const Main = () => {
     const { pin } = useParams();
-    const { data } = useFetch('http://localhost:8000/user/' + pin)
-    const { dataTwo } = useFetchTwo('http://localhost:8000/user/' + pin + '/show')
-    const [ text, setText ] = useState('')
-
-    console.log(dataTwo.show)
+    const { data } = useFetch('http://localhost:8000/user/' + pin);
+    const { dataTwo } = useFetchTwo('http://localhost:8000/user/' + pin + '/show');
+    const [ text, setText ] = useState('');
 
     const sendText = (e) => {
         axios
-        .post('http://localhost:8000/user/' + pin, {text})
+        .post('http://localhost:8000/user/' + pin, {text}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
         .then(response => {
-            console.log(response.data)         
+            console.log(response.data.accessToken)                       
         })
     }
+    
+
+    
 
     return ( 
 

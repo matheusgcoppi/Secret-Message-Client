@@ -5,7 +5,11 @@ const useFetchTwo = (url) => {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch(url)
+            fetch(url, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                },
+            })
                 .then((res) => {
                     if(!res.ok) {
                         throw Error('Could not fetch the data for that resource')            

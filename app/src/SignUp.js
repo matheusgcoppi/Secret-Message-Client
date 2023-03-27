@@ -4,11 +4,11 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import {  useNavigate } from "react-router-dom"
 
+
 const SignUp = () => {
     const navigate = useNavigate()
     const [name, setName] = useState('')
     const [pintwo, setPintwo] = useState('')
-    
     
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -19,17 +19,23 @@ const SignUp = () => {
             if(response.data.pinEncrypted.pin) {
                 navigate(`/user/${response.data.pinEncrypted.pin}` )
                 console.log(response.data.pinEncrypted.pin)
-                       
+                localStorage.setItem('accessToken', response.data.accessToken)         
+                localStorage.setItem('refreshToken', response.data.refreshToken)         
+                console.log(localStorage)    
             }
         })
         .catch((error) => {
             console.log(error)
         })
-
+        
     }
 
     return ( 
+
         <div className="all "> 
+        <div>
+      
+    </div>
     <div className="container d-flex justify-content-center">
         
     <Form onSubmit={handleSubmit}>
