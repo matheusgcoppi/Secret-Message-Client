@@ -2,6 +2,7 @@ import './index.css'
 import { useState } from 'react';
 import axios from 'axios';
 import {  useNavigate } from "react-router-dom"
+import NavBar from './NavBar';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -23,6 +24,8 @@ const Login = () => {
     }
 
     return ( 
+        <div>
+            <NavBar/>
         <div className="Login">
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
@@ -37,6 +40,7 @@ const Login = () => {
                     <input type="submit" />
                 </div>
             </form>
+        </div>
         </div>
      );
 }

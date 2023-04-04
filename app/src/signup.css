@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0px;
+    
+}
+
+.container-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; 
+}
+
+.form-sign label {
+    display: block; 
+    margin-top: 20px;
+}
+
+.button-sign {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #01d28e;
+    border: 1px solid #01d28e;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.button-sign:hover {
+    background: #6cf0c2;
+}
