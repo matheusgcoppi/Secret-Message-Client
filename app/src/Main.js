@@ -1,12 +1,13 @@
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
-import { useContext, useState } from 'react';
+import {  useState } from 'react';
 import useFetchTwo from "./useFetchTwo";
 import NavBar from "./NavBar";
-
+import axios from "axios";
 import React from 'react';
-import { UserContext } from "./UserContext";
+
+
+
 
 const Main = () => {
     const { pin } = useParams();
@@ -14,10 +15,10 @@ const Main = () => {
     const { dataTwo } = useFetchTwo('http://localhost:8000/user/' + pin + '/show');
     const [ text, setText ] = useState('');
     const [ error, setError ] = useState(false);
-    const {user, setUser} = useContext(UserContext)   
+    
    
 
-  console.log(JSON.stringify(user))
+  
     const sendText = (e) => {
       try {
         axios
@@ -28,7 +29,7 @@ const Main = () => {
         })
         .then(response => {
             console.log(response.data.accessToken)
-            setUser(response.data) 
+            
                                   
         })
         

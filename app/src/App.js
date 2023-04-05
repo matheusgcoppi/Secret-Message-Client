@@ -4,17 +4,16 @@ import Login from './Login'
 import SignUp from './SignUp'
 import Main from './Main'
 import NotFound from './NotFound'
-import React, { useState, useMemo } from 'react';
-import { UserContext } from './UserContext'
+import React from 'react';
 
 function App() {
-  const [user, setUser] = useState(null)
+ 
 
-  const value = useMemo(() => ({ user, setUser }), [user, setUser]); //because we'll modify the user multiple times
+  
 
   return (
     <Router>
-      <UserContext.Provider value={value}>
+      
     <div className="app">
       <Routes>
         <Route exact path= "/" element= {<SignUp/>}></Route>
@@ -23,7 +22,7 @@ function App() {
         <Route path= "*" element= {<NotFound/>}></Route>
       </Routes>
     </div>
-      </UserContext.Provider>
+      
     </Router>
   );
 }
